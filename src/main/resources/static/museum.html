@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.E.S.S Journal — 线上博物馆</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English+SC&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/modules.css?v=36">
+    <meta name="view-transition" content="same-origin">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/premium.css?v=2">
+    <link rel="stylesheet" href="css/theme.css?v=1">
+    <link rel="stylesheet" href="css/theme-light.css?v=1">
+    <script>(function(){try{var t=localStorage.getItem('mess_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body class="newspaper-page">
+    <div class="sidebar-hover-zone" id="sidebar-trigger"></div>
+    <button class="hamburger" id="hamburger" title="召唤导航栏"><svg class="icon"><use href="#icon-menu"/></svg></button>
+
+    <header class="site-header" id="sidebar">
+        <div class="brand">
+            <div class="brand-title">M.E.S.S Journal</div>
+            <div class="brand-sub">杂研期刊 | Method, Experiment, Survey, Summary</div>
+        </div>
+                <nav class="nav">
+            <a href="index.html" id="nav-home"><svg class="icon"><use href="#icon-home"/></svg> 首页</a>
+            <a href="articles.html" id="nav-articles"><svg class="icon"><use href="#icon-doc"/></svg> 文章</a>
+            <a href="my.html" id="nav-mine"><svg class="icon"><use href="#icon-folder"/></svg> 我的</a>
+            <a href="engraving.html" id="nav-engraving"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊</a>
+            <a href="museum.html" id="nav-museum"><svg class="icon"><use href="#icon-museum"/></svg> 线上博物馆</a>
+            <a href="puzzle.html" id="nav-puzzle"><svg class="icon"><use href="#icon-grid"/></svg> 每日谜题</a>
+            <a href="shop.html" id="nav-shop"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺</a>
+            <a href="announcements.html" id="nav-announcements"><svg class="icon"><use href="#icon-inbox"/></svg> 公告</a>
+            <a href="inbox.html" id="nav-inbox" style="display:none"><svg class="icon"><use href="#icon-inbox"/></svg> 信息箱</a>
+        </nav>
+        <div class="header-right">
+            <div id="user-area"></div>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="main-wrapper">
+        <div class="top-bar">
+            <div class="top-brand">M·E·S·S Journal · 杂研期刊</div>
+            <div class="top-right">EST. MMXXIV · A Learned Miscellany</div>
+        </div>
+
+        <header class="newspaper-masthead">
+            <div class="masthead-overline">Vol. I · No. II</div>
+            <h1 class="masthead-title">线上博物馆</h1>
+            <div class="masthead-tagline">THE ONLINE MUSEUM · 文物典藏</div>
+            <div class="masthead-meta">
+                <span>EST. 2024</span>
+                <span id="masthead-date">Tuesday, July 21, 2026</span>
+                <span>FREE ENTRY</span>
+            </div>
+        </header>
+
+        <section class="museum-section container">
+            <div class="museum-banner">
+                <div class="museum-banner-title">Antiquities & Curiosities</div>
+                <div class="museum-banner-sub">Online Exhibition Hall · 常设展厅</div>
+                <div class="museum-banner-note">本馆收录跨越千年的文明器物。点击展签查看详情；管理员可直接发布，普通用户提交后由策展人审核。</div>
+            </div>
+
+            <!-- B · 3D 浮卡博物馆（CSS 3D，移动端退化为 2D 横滑） -->
+            <section class="relic-carousel" id="relic-carousel" aria-label="3D 浮卡展厅">
+                <div class="rc-stage">
+                    <div class="rc-track"><div class="rc-loading">展柜布置中…</div></div>
+                </div>
+                <div class="rc-hint">拖动旋转 · 滚轮翻页 · 点击查看详情</div>
+            </section>
+
+            <div class="section-heading museum-heading">
+                <h2>馆藏一览</h2>
+                <div class="sub">THE COLLECTION · 文明之器</div>
+            </div>
+
+            <div class="museum-toolbar">
+                <button class="btn primary" id="submit-btn"><svg class="icon"><use href="#icon-pen"/></svg> 提交文物</button>
+                <button class="btn" id="mine-btn" style="display:none"><svg class="icon"><use href="#icon-folder"/></svg> 我的提交</button>
+                <span class="museum-hint" id="museum-hint">点击展品查看详情；管理员可直接上线，普通用户提交后将进入审核。</span>
+            </div>
+
+            <div class="relic-gallery" id="relic-gallery">
+                <div class="relic-grid" id="relic-grid"></div>
+                <div class="pager" id="relic-pager"></div>
+            </div>
+        </section>
+
+        <footer class="footer">M·E·S·S Journal — 杂研期刊 · 线上博物馆</footer>
+    </div>
+
+    <!-- 详情弹窗 -->
+    <div class="modal" id="detail-modal" hidden>
+        <div class="modal-box">
+            <button class="modal-close" id="detail-close" aria-label="关闭"><svg class="icon"><use href="#icon-x"/></svg></button>
+            <div id="detail-content"></div>
+        </div>
+    </div>
+
+    <!-- 提交弹窗 -->
+    <div class="modal" id="submit-modal" hidden>
+        <div class="modal-box">
+            <button class="modal-close" id="submit-close" aria-label="关闭"><svg class="icon"><use href="#icon-x"/></svg></button>
+            <h2 class="modal-title">提交文物</h2>
+            <div class="modal-sub" id="submit-sub">填写文物信息。普通用户提交后由管理员审核上线。</div>
+            <form id="relic-form">
+                <div class="field"><label>文物名称 *</label><input class="input" name="title" required></div>
+                <div class="field-row">
+                    <div class="field"><label>年代</label><input class="input" name="dynasty"></div>
+                    <div class="field"><label>材质</label><input class="input" name="material"></div>
+                </div>
+                <div class="field-row">
+                    <div class="field"><label>出土地</label><input class="input" name="origin"></div>
+                    <div class="field"><label>收藏地</label><input class="input" name="location"></div>
+                </div>
+                <div class="field"><label>介绍</label><textarea class="textarea" name="description" rows="6"></textarea></div>
+                <div class="field"><label>文物图片</label>
+                    <div class="avatar-upload">
+                        <img id="relicPreview" class="avatar-preview" alt="文物预览" hidden>
+                        <span id="relicPlaceholder" class="avatar-preview avatar-preview--placeholder"><svg class="icon"><use href="#icon-museum"/></svg></span>
+                        <div class="avatar-actions">
+                            <input type="file" id="relicImage" accept="image/*" hidden>
+                            <button type="button" class="btn" id="relicPick">选择图片</button>
+                            <button type="button" class="link-btn" id="relicClear" hidden>移除</button>
+                        </div>
+                        <input type="hidden" id="image" value="">
+                    </div>
+                </div>
+                <div class="field"><label>提交留言（给管理员）</label><textarea class="textarea" name="submitterNote" rows="2" placeholder="例如：来源、参考资料等"></textarea></div>
+                <div class="error-msg" id="relic-error"></div>
+                <div class="editor-actions">
+                    <button type="submit" class="btn primary">提交</button>
+                    <button type="button" class="link-btn" id="submit-cancel">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js?v=36"></script>
+    <script src="js/common.js?v=47"></script>
+    <script src="js/image-utils.js?v=1"></script>
+    <script src="js/museum.js?v=36"></script>
+    <script src="js/premium.js?v=1"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+/* =========================================================================
+ * theme-light.css —— 杂研 · 晨雾浅金画廊风（Misty Light Gold Gallery）
+ * 设计语言：暖雾白底（70%） + 沉稳香槟金点睛（10%） + 墨黑文字（20%）
+ * 排版：与暗色版同一套（Cormorant / Noto Serif SC 展示衬线；Manrope / Noto Sans SC UI）
+ * 纵深：暖雾白底 + 顶部极淡金辉 + 底部更淡暖影 + 微噪点颗粒；玻璃面 + 暖调柔影 + 克制圆角
+ * 本文件加载顺序在 theme.css 之后，且用 :root[data-theme="light"] 提升特异性，
+ * 因此只在用户切到浅色时生效；暗色仍是默认。入口页 splash 使用独立 --ink* 令牌，
+ * 此处不覆盖，保持暗色电影感（浅站 + 暗片头反差更高级）。
+ * 同样保留全部既有类名与结构，只重定义视觉；尊重 prefers-reduced-motion。
+ * ========================================================================= */
+
+:root[data-theme="light"] {
+    /* —— 底色（70%）：暖雾白，分层营造通透纵深 —— */
+    --bg:           #f4f1ea;   /* 主背景：暖雾白（非纯白，带一点纸的温度） */
+    --bg-2:         #ebe6dc;   /* 更深的边角 */
+    --surface:      #fbf9f4;   /* 卡片 / 面板：近白暖 */
+    --surface-2:    #f1ece3;   /* 次级面板 / 输入框底 */
+    --surface-3:    #e8e1d4;   /* 三级：hover / 高亮底 */
+
+    /* —— 文字（20%）：墨黑 / 暖灰 —— */
+    --text:         #2a2620;   /* 主文字：墨黑（非纯黑，降生硬） */
+    --text-soft:    #6c6354;   /* 次要文字：暖褐灰 */
+    --text-faded:   #9b9182;   /* 最弱：浅褐 */
+
+    /* —— 线条（暖墨 + 金调） —— */
+    --rule:         #e0d8c9;   /* 发丝线（暖灰） */
+    --rule-soft:    rgba(154, 124, 66, 0.18);  /* 极淡金线 */
+    --rule-gold:    rgba(154, 124, 66, 0.40);  /* 金线 */
+
+    /* —— 强调（10%）：沉稳香槟金（浅底需更深以保对比） —— */
+    --accent:       #95743a;   /* 主强调：沉稳香槟金 */
+    --accent-2:     #b4914f;   /* 亮金（高光） */
+    --accent-3:     #6c5226;   /* 深金（暗部） */
+    --danger:       #b14a3d;   /* 危险 / 拒绝：砖红 */
+    --success:      #5f8a6b;   /* 成功：柔绿 */
+    --warning:      #a9822f;   /* 提醒：琥珀 */
+
+    /* —— 圆角 / 阴影 / 玻璃 —— */
+    --shadow-soft:   0 10px 26px -14px rgba(60, 50, 35, 0.22);
+    --shadow-medium: 0 20px 44px -18px rgba(60, 50, 35, 0.28);
+    --shadow-deep:   0 30px 70px -26px rgba(50, 42, 30, 0.34);
+    --glass-bg:      rgba(255, 253, 248, 0.62);
+    --glass-brd:     rgba(154, 124, 66, 0.28);
+}
+
+/* ==================== 基础：背景图翻亮 ==================== */
+:root[data-theme="light"] body {
+    background-image:
+        radial-gradient(120% 90% at 50% -12%, rgba(184, 148, 86, 0.10), transparent 55%),
+        radial-gradient(90% 70% at 50% 115%, rgba(120, 100, 70, 0.10), transparent 60%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    color: var(--text);
+}
+
+:root[data-theme="light"] ::selection { background: rgba(154, 124, 66, 0.30); color: #2a2620; }
+
+/* ==================== 遮罩 / 弹窗（硬编码暗色值翻亮） ==================== */
+:root[data-theme="light"] .sidebar-overlay { background: rgba(60, 52, 40, 0.42); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+
+/* 大弹窗遮罩（#submit-modal 等使用的 .modal 全屏暗幕） */
+:root[data-theme="light"] .modal { background: rgba(60, 52, 40, 0.50); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+/* 确认弹层：遮罩翻亮；对话框本体保持浅色玻璃（不被上一条误伤） */
+:root[data-theme="light"] .modal-mask { background: rgba(60, 52, 40, 0.45); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+:root[data-theme="light"] .modal-mask .modal { background: var(--surface); }
+
+/* ==================== 页脚渐变翻亮 ==================== */
+:root[data-theme="light"] .footer {
+    background: linear-gradient(180deg, transparent, rgba(60, 52, 40, 0.05));
+    border-top-color: var(--rule-gold);
+}
+
+/* ==================== 报纸首页报头（暗角→暖影） ==================== */
+:root[data-theme="light"] .newspaper-masthead {
+    background:
+        radial-gradient(120% 80% at 50% -10%, rgba(184, 148, 86, 0.12), transparent 55%),
+        radial-gradient(70% 100% at 50% 120%, rgba(120, 100, 70, 0.08), transparent 60%),
+        linear-gradient(180deg, var(--surface), var(--bg));
+    border-bottom-color: var(--rule-gold);
+    box-shadow: var(--shadow-soft);
+}
+:root[data-theme="light"] .newspaper-masthead::before { content: "" !important; display: none !important; }
+
+/* ==================== 滚动条翻亮 ==================== */
+:root[data-theme="light"] ::-webkit-scrollbar-track { background: var(--bg-2); }
+:root[data-theme="light"] ::-webkit-scrollbar-thumb { background: #d8cfbe; border-color: var(--bg-2); }
+:root[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: var(--accent-3); }

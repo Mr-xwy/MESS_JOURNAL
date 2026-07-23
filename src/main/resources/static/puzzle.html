@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.E.S.S Journal — 每日谜题</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English+SC&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/modules.css?v=36">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/premium.css?v=2">
+    <link rel="stylesheet" href="css/theme.css?v=1">
+    <link rel="stylesheet" href="css/theme-light.css?v=1">
+    <link rel="stylesheet" href="css/poem-slide.css?v=2">
+    <script>(function(){try{var t=localStorage.getItem('mess_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body class="newspaper-page">
+    <div class="sidebar-hover-zone" id="sidebar-trigger"></div>
+    <button class="hamburger" id="hamburger" title="召唤导航栏"><svg class="icon"><use href="#icon-menu"/></svg></button>
+
+    <header class="site-header" id="sidebar">
+        <div class="brand">
+            <div class="brand-title">M.E.S.S Journal</div>
+            <div class="brand-sub">杂研期刊 | Method, Experiment, Survey, Summary</div>
+        </div>
+                <nav class="nav">
+            <a href="index.html" id="nav-home"><svg class="icon"><use href="#icon-home"/></svg> 首页</a>
+            <a href="articles.html" id="nav-articles"><svg class="icon"><use href="#icon-doc"/></svg> 文章</a>
+            <a href="my.html" id="nav-mine"><svg class="icon"><use href="#icon-folder"/></svg> 我的</a>
+            <a href="engraving.html" id="nav-engraving"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊</a>
+            <a href="museum.html" id="nav-museum"><svg class="icon"><use href="#icon-museum"/></svg> 线上博物馆</a>
+            <a href="puzzle.html" id="nav-puzzle"><svg class="icon"><use href="#icon-grid"/></svg> 每日谜题</a>
+            <a href="shop.html" id="nav-shop"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺</a>
+            <a href="announcements.html" id="nav-announcements"><svg class="icon"><use href="#icon-inbox"/></svg> 公告</a>
+            <a href="inbox.html" id="nav-inbox" style="display:none"><svg class="icon"><use href="#icon-inbox"/></svg> 信息箱</a>
+        </nav>
+        <div class="header-right">
+            <div id="user-area"></div>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="main-wrapper">
+        <div class="top-bar">
+            <div class="top-brand">M·E·S·S Journal · 杂研期刊</div>
+            <div class="top-right">EST. MMXXIV · A Learned Miscellany</div>
+        </div>
+
+        <header class="newspaper-masthead">
+            <div class="masthead-overline">Vol. I · No. V</div>
+            <h1 class="masthead-title">每日谜题</h1>
+            <div class="masthead-tagline">DAILY POEM SLIDE · 拼诗华容道</div>
+            <div class="masthead-meta">
+                <span>EST. 2024</span>
+                <span id="masthead-date">Tuesday, July 21, 2026</span>
+                <span>BRAIN TEASER</span>
+            </div>
+        </header>
+
+        <section class="puzzle-section container">
+            <div class="museum-banner">
+                <div class="museum-banner-title">拼诗华容道</div>
+                <div class="museum-banner-sub">每日谜题 · 滑动拼诗</div>
+                <div class="museum-banner-note">每天一道拼诗：点击与空格相邻的方块滑动，把诗词拼回正确顺序。<br>· 轻松：七言绝句，4×7 网格，每行一句；末格为空格，拼好后补全末字。<br>· 困难：长短词（含标点），自动凑成矩形，允许多个空格。<br>在最短时间内拼好并登上今日榜——点「查看原诗」本局成绩不再计入。登录后即可提交成绩，与全站读者一较高下。</div>
+            </div>
+
+            <div class="puzzle-layout">
+                <div class="puzzle-left">
+                    <div class="puzzle-timer-bar">
+                        <span class="pt-label">今日</span>
+                        <span class="pt-date" id="puzzle-date">—</span>
+                        <span class="pt-sep">·</span>
+                        <span class="pt-label">计时</span>
+                        <span class="pt-timer" id="puzzle-timer">00:00</span>
+                        <span class="pt-theme" id="puzzle-theme"></span>
+                    </div>
+
+                    <div class="puzzle-diff" id="puzzle-diff">
+                        <button class="diff-btn active" data-diff="easy">轻松 · 七言绝句</button>
+                        <button class="diff-btn" data-diff="hard">困难 · 长短词</button>
+                    </div>
+
+                    <div class="puzzle-board-wrap">
+                        <div class="puzzle-board slide-board" id="puzzle-grid"></div>
+                        <div class="puzzle-start-overlay" id="start-overlay">
+                            <div class="start-overlay-inner">
+                                <div class="start-overlay-hint">拼好打乱的诗句，计时即开始</div>
+                                <button class="btn primary" id="puzzle-start">开始挑战</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="puzzle-hint" id="puzzle-hint"></div>
+
+                    <div class="puzzle-actions">
+                        <button class="btn" id="puzzle-reshuffle">重新打乱</button>
+                        <button class="btn" id="puzzle-reveal">查看原诗</button>
+                    </div>
+
+                    <div class="poem-reveal" id="poem-reveal"></div>
+                </div>
+
+                <aside class="puzzle-right">
+                    <div class="puzzle-submit-card">
+                        <button class="btn primary" id="puzzle-submit" disabled>提交成绩</button>
+                        <div class="puzzle-status" id="puzzle-status"></div>
+                        <div class="my-score" id="my-score"></div>
+                    </div>
+                    <div class="lb-card">
+                        <h3>今日榜单 · LEADERBOARD</h3>
+                        <div class="lb-list" id="leaderboard-list"></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <footer class="footer">M·E·S· Journal — 杂研期刊 · 每日谜题</footer>
+    </div>
+
+    <script src="js/api.js?v=36"></script>
+    <script src="js/common.js?v=47"></script>
+    <script src="js/puzzle.js?v=38"></script>
+</body>
+</html>

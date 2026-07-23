@@ -1,0 +1,185 @@
+/* ============================================================
+ * articles.css —— 文章流页 A 方案：大字杂志排版（Magazine Index）
+ * 与暗色奢华 / 晨雾浅金主题共用 :root 令牌，明暗自动适配。
+ * 结构：每篇文章占一整行，序号 + 衬线大标题 + eyebrow 小字 + 右侧元信息。
+ * hover：整行金线划入、标题右移、序号变金。
+ * ============================================================ */
+
+.articles-masthead {
+    padding: 56px 0 28px;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 28px;
+}
+.am-overline {
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--text-faded);
+    margin-bottom: 14px;
+}
+.am-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.am-title {
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.02;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin: 0;
+}
+.am-sub {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-faded);
+    margin-top: 12px;
+}
+
+/* 投稿按钮：金色胶囊（复用主题令牌） */
+.btn-gold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent);
+    color: var(--accent-ink, #1a1408);
+    border: 1px solid var(--accent);
+    border-radius: var(--pill, 999px);
+    padding: 12px 22px;
+    font-family: var(--sans);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s, filter .3s;
+}
+.btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    filter: brightness(1.06);
+}
+.btn-gold .icon { width: 16px; height: 16px; }
+
+/* ---- A 方案：大字杂志行 ---- */
+.article-rows {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--rule);
+}
+.article-row {
+    display: grid;
+    grid-template-columns: 64px 1fr auto;
+    align-items: baseline;
+    gap: 24px;
+    padding: 26px 8px 26px 0;
+    border-bottom: 1px solid var(--rule-soft);
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    transition: padding-left .4s cubic-bezier(.2,.7,.2,1), background .4s;
+}
+/* 悬停金线划入 + 标题右移 */
+.article-row::before {
+    content: "";
+    position: absolute;
+    left: 0; top: 18%;
+    height: 64%;
+    width: 2px;
+    background: var(--accent);
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.article-row:hover {
+    padding-left: 22px;
+    background: linear-gradient(90deg, var(--surface-2, transparent), transparent 70%);
+}
+.article-row:hover::before { transform: scaleY(1); }
+
+.ar-num {
+    font-family: var(--mono, 'JetBrains Mono', monospace);
+    font-size: 15px;
+    color: var(--text-faded);
+    letter-spacing: 0.1em;
+    transition: color .3s;
+    padding-top: 6px;
+}
+.article-row:hover .ar-num { color: var(--accent); }
+
+.ar-main { min-width: 0; }
+.ar-title {
+    display: block;
+    font-family: var(--serif-display);
+    font-weight: 500;
+    font-size: clamp(22px, 3vw, 32px);
+    line-height: 1.18;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    transition: color .25s;
+}
+.article-row:hover .ar-title { color: var(--accent); }
+.ar-byline {
+    display: block;
+    margin-top: 10px;
+    font-family: var(--sans);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--text-faded);
+}
+
+.ar-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-top: 6px;
+    white-space: nowrap;
+}
+.ar-likes {
+    font-family: var(--sans);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    color: var(--text-soft);
+}
+.ar-badge {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    border-radius: var(--pill, 999px);
+    padding: 3px 10px;
+}
+
+/* 响应式：窄屏堆叠 */
+@media (max-width: 720px) {
+    .article-row {
+        grid-template-columns: 40px 1fr;
+        gap: 14px;
+        padding: 20px 4px;
+    }
+    .ar-meta {
+        grid-column: 2;
+        padding-top: 10px;
+        justify-content: flex-start;
+    }
+    .ar-title { font-size: 21px; }
+}
+
+/* 减少运动：降级过渡 */
+@media (prefers-reduced-motion: reduce) {
+    .article-row, .article-row::before, .ar-num, .ar-title, .btn-gold {
+        transition: none !important;
+    }
+}

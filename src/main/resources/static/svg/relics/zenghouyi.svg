@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="曾侯乙编钟">
+  <g fill="none" stroke="#1a1410" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 50 H170"/>
+    <path d="M30 90 H170"/>
+    <path d="M30 130 H170"/>
+    <path d="M30 50 V150"/>
+    <path d="M170 50 V150"/>
+    <path d="M48 50 Q60 40 72 50 L76 82 L44 82 Z"/><path d="M56 48 a4 4 0 1 1 8 0"/>
+    <path d="M88 50 Q100 40 112 50 L116 82 L84 82 Z"/><path d="M96 48 a4 4 0 1 1 8 0"/>
+    <path d="M128 50 Q140 40 152 50 L156 82 L124 82 Z"/><path d="M136 48 a4 4 0 1 1 8 0"/>
+    <path d="M68 90 Q80 80 92 90 L96 120 L64 120 Z"/><path d="M76 88 a4 4 0 1 1 8 0"/>
+    <path d="M108 90 Q120 80 132 90 L136 120 L104 120 Z"/><path d="M116 88 a4 4 0 1 1 8 0"/>
+    <path d="M48 130 Q60 120 72 130 L76 160 L44 160 Z"/><path d="M56 128 a4 4 0 1 1 8 0"/>
+    <path d="M88 130 Q100 120 112 130 L116 160 L84 160 Z"/><path d="M96 128 a4 4 0 1 1 8 0"/>
+    <path d="M128 130 Q140 120 152 130 L156 160 L124 160 Z"/><path d="M136 128 a4 4 0 1 1 8 0"/>
+  </g>
+</svg>

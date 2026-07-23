@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="兵马俑">
+  <g fill="none" stroke="#1a1410" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="100" cy="42" r="18"/>
+    <path d="M88 30 Q100 16 112 30"/>
+    <path d="M76 64 Q100 58 124 64 L130 132 H70 Z"/>
+    <path d="M70 116 H130"/>
+    <path d="M76 70 L58 112"/>
+    <path d="M124 70 L142 112"/>
+    <path d="M82 132 L80 180"/>
+    <path d="M118 132 L120 180"/>
+    <path d="M84 82 H116"/>
+    <path d="M84 94 H116"/>
+    <path d="M84 106 H116"/>
+    <path d="M64 88 l6 8 M136 88 l-6 8"/>
+  </g>
+</svg>

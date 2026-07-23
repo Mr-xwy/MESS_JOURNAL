@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.E.S.S Journal — 古董铺</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English+SC&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/modules.css?v=36">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/premium.css?v=2">
+    <link rel="stylesheet" href="css/theme.css?v=1">
+    <link rel="stylesheet" href="css/theme-light.css?v=1">
+    <script>(function(){try{var t=localStorage.getItem('mess_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body class="newspaper-page">
+    <div class="sidebar-hover-zone" id="sidebar-trigger"></div>
+    <button class="hamburger" id="hamburger" title="召唤导航栏"><svg class="icon"><use href="#icon-menu"/></svg></button>
+
+    <header class="site-header" id="sidebar">
+        <div class="brand">
+            <div class="brand-title">M.E.S.S Journal</div>
+            <div class="brand-sub">杂研期刊 | Method, Experiment, Survey, Summary</div>
+        </div>
+                <nav class="nav">
+            <a href="index.html" id="nav-home"><svg class="icon"><use href="#icon-home"/></svg> 首页</a>
+            <a href="articles.html" id="nav-articles"><svg class="icon"><use href="#icon-doc"/></svg> 文章</a>
+            <a href="my.html" id="nav-mine"><svg class="icon"><use href="#icon-folder"/></svg> 我的</a>
+            <a href="engraving.html" id="nav-engraving"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊</a>
+            <a href="museum.html" id="nav-museum"><svg class="icon"><use href="#icon-museum"/></svg> 线上博物馆</a>
+            <a href="puzzle.html" id="nav-puzzle"><svg class="icon"><use href="#icon-grid"/></svg> 每日谜题</a>
+            <a href="shop.html" id="nav-shop"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺</a>
+            <a href="announcements.html" id="nav-announcements"><svg class="icon"><use href="#icon-inbox"/></svg> 公告</a>
+            <a href="inbox.html" id="nav-inbox" style="display:none"><svg class="icon"><use href="#icon-inbox"/></svg> 信息箱</a>
+        </nav>
+        <div class="header-right">
+            <div id="user-area"></div>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="main-wrapper">
+        <div class="top-bar">
+            <div class="top-brand">M·E·S·S Journal · 杂研期刊</div>
+            <div class="top-right">EST. MMXXIV · A Learned Miscellany</div>
+        </div>
+
+        <header class="newspaper-masthead">
+            <div class="masthead-overline">Vol. I · No. V</div>
+            <h1 class="masthead-title">古董铺</h1>
+            <div class="masthead-tagline">THE CURIO BAZAAR · 闲置集市</div>
+            <div class="masthead-meta">
+                <span>EST. 2024</span>
+                <span id="masthead-date">Tuesday, July 21, 2026</span>
+                <span>SECOND-HAND</span>
+            </div>
+        </header>
+
+        <section class="shop-section container">
+            <div class="museum-banner">
+                <div class="museum-banner-title">The Curio Bazaar</div>
+                <div class="museum-banner-sub">古董铺 · 闲置集市</div>
+                <div class="museum-banner-note">一处二手闲置的茶话会场。你可以淘换同好旧藏，也可以发布自己的闲置——上传图片、标个价，静待有缘人。下单后进入订单与付款流程（付款通道暂未开放）。</div>
+            </div>
+
+            <div class="shop-toolbar">
+                <button class="btn primary" id="publish-btn"><svg class="icon"><use href="#icon-upload"/></svg> 发布闲置</button>
+                <button class="btn" id="mine-btn" style="display:none"><svg class="icon"><use href="#icon-folder"/></svg> 我的闲置</button>
+                <select class="input shop-cat" id="cat-filter">
+                    <option value="">全部分类</option>
+                    <option value="瓷器">瓷器</option>
+                    <option value="书画">书画</option>
+                    <option value="玉器">玉器</option>
+                    <option value="钱币">钱币</option>
+                    <option value="杂项">杂项</option>
+                </select>
+                <div class="shop-search">
+                    <svg class="icon"><use href="#icon-search"/></svg>
+                    <input class="input" id="kw-input" placeholder="搜索闲置宝贝…">
+                </div>
+            </div>
+
+            <div class="shop-grid" id="product-grid"></div>
+            <div class="pager" id="shop-pager"></div>
+            <div class="museum-hint" id="shop-hint" style="margin-top:14px">点击任意宝贝查看详情并下单。</div>
+        </section>
+
+        <footer class="footer">M·E·S·S Journal — 杂研期刊 · 古董铺</footer>
+    </div>
+
+    <!-- 发布闲置弹窗 -->
+    <div class="modal" id="submit-modal" hidden>
+        <div class="modal-box">
+            <button class="modal-close" id="submit-close" aria-label="关闭"><svg class="icon"><use href="#icon-x"/></svg></button>
+            <h2 class="modal-title">发布闲置</h2>
+            <div class="modal-sub" id="submit-sub">填写宝贝信息，上传一张图片，标个价即可上架。</div>
+            <form id="product-form">
+                <div class="field"><label>标题 *</label><input class="input" name="title" required maxlength="100" placeholder="如：民国 铜胎掐丝珐琅鼻烟壶"></div>
+                <div class="field-row">
+                    <div class="field"><label>价格（元）*</label><input class="input" name="price" type="number" min="0" step="0.01" required placeholder="0.00"></div>
+                    <div class="field"><label>分类</label>
+                        <select class="input" name="category">
+                            <option value="瓷器">瓷器</option>
+                            <option value="书画">书画</option>
+                            <option value="玉器">玉器</option>
+                            <option value="钱币">钱币</option>
+                            <option value="杂项" selected>杂项</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="field"><label>成色</label>
+                    <select class="input" name="itemCondition">
+                        <option value="全新">全新</option>
+                        <option value="九五新" selected>九五新</option>
+                        <option value="八成新">八成新</option>
+                        <option value="有瑕疵">有瑕疵</option>
+                    </select>
+                </div>
+                <div class="field"><label>描述</label><textarea class="textarea" name="description" rows="4" placeholder="年代、材质、品相、故事……"></textarea></div>
+                <div class="field">
+                    <label>宝贝图片</label>
+                    <input type="file" id="relicPick" accept="image/*" class="file-input">
+                    <div class="avatar-actions">
+                        <button type="button" class="link-btn" id="relicPickBtn"><svg class="icon"><use href="#icon-upload"/></svg> 选择图片</button>
+                        <button type="button" class="link-btn" id="relicClearBtn" style="display:none">移除</button>
+                    </div>
+                    <div class="product-preview" id="relicPreview" style="display:none"></div>
+                    <input type="hidden" id="image" name="image">
+                </div>
+                <div class="error-msg" id="product-error"></div>
+                <div class="editor-actions">
+                    <button type="submit" class="btn primary">上架</button>
+                    <button type="button" class="link-btn" id="submit-cancel">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/api.js?v=36"></script>
+    <script src="js/common.js?v=47"></script>
+    <script src="js/image-utils.js?v=1"></script>
+    <script src="js/shop.js?v=38"></script>
+</body>
+</html>

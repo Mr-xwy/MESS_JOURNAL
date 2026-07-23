@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="清明上河图">
+  <g fill="none" stroke="#1a1410" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M30 40 H170"/>
+    <path d="M30 160 H170"/>
+    <circle cx="30" cy="40" r="6"/><circle cx="170" cy="40" r="6"/>
+    <circle cx="30" cy="160" r="6"/><circle cx="170" cy="160" r="6"/>
+    <path d="M40 120 Q100 110 160 120"/>
+    <path d="M40 132 Q100 122 160 132"/>
+    <path d="M55 122 Q100 80 145 122"/>
+    <path d="M55 130 Q100 92 145 130"/>
+    <circle cx="85" cy="104" r="3"/><path d="M85 107 V118"/>
+    <circle cx="115" cy="104" r="3"/><path d="M115 107 V118"/>
+    <path d="M60 150 q20 10 40 0"/>
+    <path d="M70 150 V140 M90 150 V140"/>
+    <path d="M120 72 l12 -10 12 10"/>
+    <path d="M124 72 V84 H148 V72"/>
+  </g>
+</svg>

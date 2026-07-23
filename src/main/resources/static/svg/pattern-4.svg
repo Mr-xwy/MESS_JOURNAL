@@ -1,0 +1,88 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3a3128" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+  <g transform="translate(200,200)">
+    <!-- 外框双线 -->
+    <rect x="-150" y="-150" width="300" height="300"/>
+    <rect x="-145" y="-145" width="290" height="290" stroke-dasharray="3,2"/>
+    <!-- 内框 -->
+    <rect x="-100" y="-100" width="200" height="200"/>
+    <!-- 四角装饰 -->
+    <g>
+      <!-- 左上角 -->
+      <g transform="translate(-150,-150)">
+        <circle cx="0" cy="0" r="8"/>
+        <path d="M-12,-12 L-25,-25"/>
+        <path d="M-12,-12 Q-20,-10 -25,-25" opacity="0.6"/>
+        <circle cx="-25" cy="-25" r="3" fill="#3a3128" stroke="none"/>
+      </g>
+      <!-- 右上角 -->
+      <g transform="translate(150,-150)">
+        <circle cx="0" cy="0" r="8"/>
+        <path d="M12,-12 L25,-25"/>
+        <path d="M12,-12 Q20,-10 25,-25" opacity="0.6"/>
+        <circle cx="25" cy="-25" r="3" fill="#3a3128" stroke="none"/>
+      </g>
+      <!-- 左下角 -->
+      <g transform="translate(-150,150)">
+        <circle cx="0" cy="0" r="8"/>
+        <path d="M-12,12 L-25,25"/>
+        <path d="M-12,12 Q-20,10 -25,25" opacity="0.6"/>
+        <circle cx="-25" cy="25" r="3" fill="#3a3128" stroke="none"/>
+      </g>
+      <!-- 右下角 -->
+      <g transform="translate(150,150)">
+        <circle cx="0" cy="0" r="8"/>
+        <path d="M12,12 L25,25"/>
+        <path d="M12,12 Q20,10 25,25" opacity="0.6"/>
+        <circle cx="25" cy="25" r="3" fill="#3a3128" stroke="none"/>
+      </g>
+    </g>
+    <!-- 四边中点装饰 -->
+    <g>
+      <g transform="translate(0,-150)">
+        <path d="M-15,0 Q0,-10 15,0 Q0,10 -15,0"/>
+        <circle cx="0" cy="0" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="translate(0,150)">
+        <path d="M-15,0 Q0,-10 15,0 Q0,10 -15,0"/>
+        <circle cx="0" cy="0" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="translate(-150,0)">
+        <path d="M0,-15 Q-10,0 0,15 Q10,0 0,-15"/>
+        <circle cx="0" cy="0" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="translate(150,0)">
+        <path d="M0,-15 Q-10,0 0,15 Q10,0 0,-15"/>
+        <circle cx="0" cy="0" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+    </g>
+    <!-- 中央菱形 -->
+    <g>
+      <path d="M0,-60 L60,0 L0,60 L-60,0 Z"/>
+      <path d="M0,-40 L40,0 L0,40 L-40,0 Z" stroke-dasharray="2,2"/>
+      <!-- 菱形四角花 -->
+      <g transform="translate(0,-60)">
+        <ellipse cx="0" cy="0" rx="3" ry="6"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(60)"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(120)"/>
+      </g>
+      <g transform="translate(60,0)">
+        <ellipse cx="0" cy="0" rx="3" ry="6"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(60)"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(120)"/>
+      </g>
+      <g transform="translate(0,60)">
+        <ellipse cx="0" cy="0" rx="3" ry="6"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(60)"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(120)"/>
+      </g>
+      <g transform="translate(-60,0)">
+        <ellipse cx="0" cy="0" rx="3" ry="6"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(60)"/>
+        <ellipse cx="0" cy="0" rx="3" ry="6" transform="rotate(120)"/>
+      </g>
+      <!-- 中心圆 -->
+      <circle cx="0" cy="0" r="12"/>
+      <circle cx="0" cy="0" r="3" fill="#3a3128" stroke="none"/>
+    </g>
+  </g>
+</svg>

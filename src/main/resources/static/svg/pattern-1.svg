@@ -1,0 +1,102 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3a3128" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+  <g transform="translate(200,200)">
+    <!-- 圆形花环外圈 -->
+    <circle cx="0" cy="0" r="160" stroke-width="0.5" stroke-dasharray="2,3"/>
+    <circle cx="0" cy="0" r="120"/>
+    <!-- 12 朵小花均匀分布 -->
+    <g>
+      <!-- 12点 -->
+      <g transform="rotate(0)">
+        <ellipse cx="0" cy="-140" rx="6" ry="14"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <!-- 1点 -->
+      <g transform="rotate(30)">
+        <ellipse cx="0" cy="-140" rx="5" ry="12"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="1.5" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(60)">
+        <ellipse cx="0" cy="-140" rx="6" ry="14"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(90)">
+        <ellipse cx="0" cy="-140" rx="5" ry="12"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="1.5" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(120)">
+        <ellipse cx="0" cy="-140" rx="6" ry="14"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(150)">
+        <ellipse cx="0" cy="-140" rx="5" ry="12"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="1.5" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(180)">
+        <ellipse cx="0" cy="-140" rx="6" ry="14"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(210)">
+        <ellipse cx="0" cy="-140" rx="5" ry="12"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="1.5" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(240)">
+        <ellipse cx="0" cy="-140" rx="6" ry="14"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(270)">
+        <ellipse cx="0" cy="-140" rx="5" ry="12"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="1.5" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(300)">
+        <ellipse cx="0" cy="-140" rx="6" ry="14"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="6" ry="14" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="2" fill="#3a3128" stroke="none"/>
+      </g>
+      <g transform="rotate(330)">
+        <ellipse cx="0" cy="-140" rx="5" ry="12"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-140" rx="5" ry="12" transform="rotate(120)"/>
+        <circle cx="0" cy="-140" r="1.5" fill="#3a3128" stroke="none"/>
+      </g>
+    </g>
+    <!-- 叶子（在花朵之间） -->
+    <g opacity="0.6">
+      <g transform="rotate(15)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(45)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(75)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(105)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(135)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(165)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(195)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(225)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(255)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(285)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(315)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+      <g transform="rotate(345)"><path d="M0,-130 Q-8,-120 -10,-110 Q0,-115 5,-122 Z"/></g>
+    </g>
+    <!-- 中央装饰 -->
+    <circle cx="0" cy="0" r="20"/>
+    <text x="0" y="6" text-anchor="middle" font-family="serif" font-size="20" fill="#3a3128" stroke="none">❦</text>
+  </g>
+</svg>

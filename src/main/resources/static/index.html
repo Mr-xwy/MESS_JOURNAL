@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M.E.S.S Journal — 文章流</title>
+    <meta name="description" content="杂研期刊 M.E.S.S Journal —— 一份博雅杂纂：文章、版画工坊、线上博物馆、读者来信、每日谜题与古董铺。">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="M.E.S.S Journal — 杂研期刊">
+    <meta property="og:description" content="一份博雅杂纂：文章、版画工坊、线上博物馆、读者来信、每日谜题与古董铺。">
+    <meta property="og:locale" content="zh_CN">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="view-transition" content="same-origin">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"M.E.S.S Journal","alternateName":"杂研期刊","url":"https://your-domain.example/"}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/modules.css?v=42">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/premium.css?v=14">
+    <link rel="stylesheet" href="css/theme.css?v=5">
+    <link rel="stylesheet" href="css/theme-light.css?v=1">
+    <script>(function(){try{var t=localStorage.getItem('mess_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body class="newspaper-page">
+    <!-- ==================== 入口页（splash）：访问网址先显示，点击/任意键进入 ==================== -->
+    <section id="splash" aria-label="进入杂研期刊">
+        <span class="splash-cursor" id="splash-cursor" aria-hidden="true"></span>
+        <span class="splash-dot" aria-hidden="true"></span>
+        <div class="splash-inner">
+            <div class="splash-overline">M·E·S·S Journal</div>
+            <div class="splash-stage" id="splash-title" role="img" aria-label="M.E.S.S Journal — 杂研期刊">
+                <span class="splash-line is-active">M·E·S·S</span>
+                <span class="splash-line">杂研</span>
+                <span class="splash-line">Method</span>
+                <span class="splash-line">Experiment</span>
+                <span class="splash-line">Survey</span>
+                <span class="splash-line">Summary</span>
+                <span class="splash-line">博雅杂纂</span>
+                <span class="splash-line">杂研 Journal</span>
+            </div>
+            <p class="splash-sub">Method, Experiment, Survey, Summary · 一份博雅杂纂</p>
+            <div class="splash-hint">点击任意处 · 或按任意键进入</div>
+        </div>
+    </section>
+
+    <!-- 进场白光切换层：点击进入时从黑场照出白光、再淡出显首页 -->
+    <div class="flash-white" id="flash-white" aria-hidden="true"></div>
+
+    <!-- 左边缘悬停触发区：鼠标移到这里就召唤侧栏 -->
+    <div class="sidebar-hover-zone" id="sidebar-trigger"></div>
+
+    <!-- 汉堡按钮：始终可见，单击召唤侧栏 -->
+    <button class="hamburger" id="hamburger" title="召唤导航栏" aria-label="召唤导航栏" aria-expanded="false" aria-controls="sidebar"><svg class="icon"><use href="#icon-menu"/></svg></button>
+
+    <!-- 左侧固定导航栏（默认隐藏在屏幕外） -->
+    <header class="site-header" id="sidebar">
+        <div class="brand">
+            <div class="brand-title">M.E.S.S Journal</div>
+            <div class="brand-sub">杂研期刊 | Method, Experiment, Survey, Summary</div>
+        </div>
+                <nav class="nav">
+            <a href="index.html" id="nav-home"><svg class="icon"><use href="#icon-home"/></svg> 首页</a>
+            <a href="articles.html" id="nav-articles"><svg class="icon"><use href="#icon-doc"/></svg> 文章</a>
+            <a href="my.html" id="nav-mine"><svg class="icon"><use href="#icon-folder"/></svg> 我的</a>
+            <a href="engraving.html" id="nav-engraving"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊</a>
+            <a href="museum.html" id="nav-museum"><svg class="icon"><use href="#icon-museum"/></svg> 线上博物馆</a>
+            <a href="puzzle.html" id="nav-puzzle"><svg class="icon"><use href="#icon-grid"/></svg> 每日谜题</a>
+            <a href="shop.html" id="nav-shop"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺</a>
+            <a href="announcements.html" id="nav-announcements"><svg class="icon"><use href="#icon-inbox"/></svg> 公告</a>
+            <a href="inbox.html" id="nav-inbox" style="display:none"><svg class="icon"><use href="#icon-inbox"/></svg> 信息箱</a>
+        </nav>
+        <div class="header-right">
+            <div id="user-area"></div>
+        </div>
+    </header>
+
+    <!-- 遮罩（移动端点击关闭） -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <!-- ==================== 首页装饰：花卉（左上）+ 大本钟（右侧） ==================== -->
+    <div class="home-deco home-deco--flower" aria-hidden="true"></div>
+    <div class="home-deco home-deco--bigben" aria-hidden="true"></div>
+
+    <!-- ==================== 主体：报纸首页 ==================== -->
+    <div class="main-wrapper">
+
+        <!-- 顶部信息条 -->
+        <div class="top-bar">
+            <div class="top-brand">M·E·S·S Journal · 杂研期刊</div>
+            <div class="top-right">EST. MMXXIV · A Learned Miscellany</div>
+        </div>
+
+        <!-- 报头（masthead） -->
+        <header class="newspaper-masthead masthead--ink reveal">
+            <div class="masthead-overline">Vol. I · No. I</div>
+            <h1 class="masthead-title">M·E·S·S Journal</h1>
+            <div class="masthead-tagline">杂研期刊 · Method, Experiment, Survey, Summary</div>
+            <div class="masthead-meta">
+                <span>EST. 2024</span>
+                <span id="masthead-date">Saturday, July 18, 2026</span>
+                <span>PRICE: 0 CENTS</span>
+            </div>
+        </header>
+
+        <!-- A · 编辑风 intro：字符揭示标题 + 期号 + 竖排类目带 -->
+        <section class="editorial-intro reveal">
+            <div class="ei-lead">
+                <div class="ei-kicker">Curated Monthly · 每月一辑</div>
+                <h2 class="ei-title js-char-reveal" data-text="杂研 · 博雅杂纂">杂研 · 博雅杂纂</h2>
+                <div class="ei-issue">VOL. III · ISSUE 47 · <span class="js-issue-date">22 JULY 2026</span></div>
+                <p class="ei-desc">一份跨越文章、版画、古董与谜题的博雅杂纂。我们记录这个时代的好奇：从学术随笔到千年器物，皆在此间徐徐展开。</p>
+                <div class="ei-actions">
+                    <a class="ei-cta magnetic" href="#featured-list"><svg class="icon"><use href="#icon-doc"/></svg> 翻阅本期</a>
+                    <a class="btn" href="museum.html">进入博物馆</a>
+                </div>
+            </div>
+            <aside class="ei-rail">
+                <div class="ei-rail-head">Departments · 本期类目</div>
+                <a class="ei-cat" href="index.html">
+                    <span class="ei-cat-name"><svg class="icon"><use href="#icon-doc"/></svg> 文章 <span class="idx">01</span></span>
+                    <span class="ei-cat-count js-count" data-count="142">0</span>
+                </a>
+                <a class="ei-cat" href="museum.html">
+                    <span class="ei-cat-name"><svg class="icon"><use href="#icon-museum"/></svg> 博物馆 <span class="idx">02</span></span>
+                    <span class="ei-cat-count js-count" data-count="56">0</span>
+                </a>
+                <a class="ei-cat" href="puzzle.html">
+                    <span class="ei-cat-name"><svg class="icon"><use href="#icon-grid"/></svg> 谜题 <span class="idx">03</span></span>
+                    <span class="ei-cat-count js-count" data-count="47">0</span>
+                </a>
+                <a class="ei-cat" href="engraving.html">
+                    <span class="ei-cat-name"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊 <span class="idx">04</span></span>
+                    <span class="ei-cat-count js-count" data-count="23">0</span>
+                </a>
+                <a class="ei-cat" href="shop.html">
+                    <span class="ei-cat-name"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺 <span class="idx">05</span></span>
+                    <span class="ei-cat-count js-count" data-count="38">0</span>
+                </a>
+                <a class="ei-cat" href="announcements.html">
+                    <span class="ei-cat-name"><svg class="icon"><use href="#icon-inbox"/></svg> 公告 <span class="idx">06</span></span>
+                    <span class="ei-cat-count js-count" data-count="12">0</span>
+                </a>
+            </aside>
+        </section>
+
+        <!-- 搜索 + 分类（"Departments"） -->
+        <div class="departments-bar">
+            <button class="hot-toggle" id="hot-toggle"><svg class="icon"><use href="#icon-trend"/></svg> 热点榜</button>
+            <div class="search-wrap">
+                <svg class="icon"><use href="#icon-search"/></svg>
+                <input id="search" class="search-input" type="text" placeholder="Search the Journal…" />
+            </div>
+            <div class="chips" id="chips"></div>
+        </div>
+
+        <!-- 首屏：字谜（左） + 热点榜（右） -->
+        <section class="home-top reveal">
+            <div class="home-top-right">
+                <div class="hot-frame">
+                    <div class="hot-header">
+                        <button class="hot-close" id="hot-close" title="收起热点榜" aria-label="收起热点榜"><svg class="icon"><use href="#icon-x"/></svg></button>
+                        <h2>The Leading Stories</h2>
+                        <div class="hot-sub">热点榜 · TOP 10 BY POPULARITY</div>
+                    </div>
+                    <div class="hot-list-grid" id="hot-list"></div>
+                    <div class="hot-refresh">
+                        <button class="btn" id="refresh-hot"><svg class="icon"><use href="#icon-refresh"/></svg> Refresh the List</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 精选河流（C 方案）—— 主页主文章区：横向时间轴，节点上下错落，展示全部已发布文章
+             注：去掉了 reveal class —— 首屏主区需要 IntersectionObserver 触发才能显，但热点榜弹窗
+             默认展开会把它推到视口外，触发器不满足阈值就整块 opacity:0 看不见。首屏主区不依赖滚动揭示。
+             兜底占位符（HTML 端写死，不靠 JS）：即使 JS 完全没跑，用户也能看到「区块在 DOM 里」。 -->
+        <section class="featured-river featured-river--main" id="featured-section">
+            <div class="section-heading">
+                <h2 class="fr-title">最新文章</h2>
+                <div class="sub">最新文章 · 按发布时间倒序 · THE LATEST DISPATCHES</div>
+            </div>
+            <div class='rh-stage' id='featured-stage'>
+                <div class='rh-popover' id='rh-popover' role='status'>
+                    <span class='rh-popover-cat'></span>
+                    <h3 class='rh-popover-title'></h3>
+                    <p class='rh-popover-excerpt'></p>
+                    <div class='rh-popover-meta'>
+                        <span class='rh-popover-author'></span>
+                        <span class='sep'>·</span>
+                        <span class='rh-popover-time'></span>
+                    </div>
+                    <a class='rh-popover-cta' href='#'>阅读全文 →</a>
+                </div>
+                <div class='rh-titles' id='featured-list' role='list' aria-label='最新文章 · 巨字垂直堆叠'>
+                    <!-- 兜底占位符：JS 跑起来会立刻覆盖这里 -->
+                    <div class='rh-status'>⏳ Loading the river…（如果一直停留这一行，说明 JS 没跑 / 报错，按 F12 看 Console）</div>
+                </div>
+            </div>
+            <div class="fr-empty empty" id="featured-empty" style="display:none;">
+                还没有文章，去 <a href="editor.html" class="link-gold">投稿</a> 第一篇吧 ✦
+            </div>
+            <div class="fr-more">
+                <a href="articles.html" class="btn btn-ghost">查看全部文章 · VIEW ALL ARTICLES →</a>
+            </div>
+        </section>
+
+        <footer class="footer footer--ink reveal">M·E·S·S Journal — 杂研期刊 · Mr.Vale</footer>
+    </div><!-- /main-wrapper -->
+
+    <!-- AI 助手浮窗 -->
+    <button class="ai-fab" id="ai-fab" title="AI 助手"><svg class="icon icon-lg"><use href="#icon-brain"/></svg></button>
+    <div class="ai-panel" id="ai-panel" hidden>
+        <div class="ai-panel-header">
+            <span><svg class="icon"><use href="#icon-brain"/></svg> AI 助手</span>
+            <button class="ai-close" id="ai-close" aria-label="关闭"><svg class="icon"><use href="#icon-x"/></svg></button>
+        </div>
+        <div class="ai-messages" id="ai-messages">
+            <div class="ai-msg ai-ai">你好，我是站内 AI 助手。试试问我：“标准的学术期刊格式是什么？”</div>
+        </div>
+        <div class="ai-input-row">
+            <textarea id="ai-input" placeholder="问我任何问题…（Enter 发送，Shift+Enter 换行）" rows="1"></textarea>
+            <button id="ai-send">发送</button>
+        </div>
+    </div>
+
+    <script src="js/config.js?v=1"></script>
+    <script src="js/api.js?v=40"></script>
+    <script src="js/common.js?v=47"></script>
+    <script src="js/premium.js?v=1"></script>
+    <script src="js/index.js?v=57"></script>
+    <!-- 入口页交互：点击 / Enter / Esc 进入；同会话已进过则不重复展示 -->
+    <script>
+    (function () {
+        var splash = document.getElementById('splash');
+        if (!splash) return;
+        var KEY = 'mess_entered';
+        var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var titleTimer = null;
+
+        var entered = false;
+        function enterSite() {
+            if (entered) return;
+            entered = true;
+            if (titleTimer) { clearInterval(titleTimer); titleTimer = null; }
+            try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+
+            if (reduce) {
+                splash.classList.add('splash--hidden');
+                document.body.classList.remove('splash-lock');
+                return;
+            }
+
+            var flash = document.getElementById('flash-white');
+            if (!flash) {
+                splash.classList.add('splash--hidden');
+                document.body.classList.remove('splash-lock');
+                return;
+            }
+            // 从黑场中照出白光：先保留 splash（避免首页抢先闪现），白光铺满后再隐去
+            flash.classList.add('flash');
+            setTimeout(function () { splash.classList.add('splash--hidden'); }, 560);
+            flash.addEventListener('animationend', function () {
+                flash.classList.remove('flash');
+                flash.style.display = 'none';
+                document.body.classList.remove('splash-lock');
+            }, { once: true });
+        }
+        // 同一浏览会话只弹一次：已进入过则本次直接跳过
+        try {
+            if (sessionStorage.getItem(KEY) === '1') {
+                if (splash.parentNode) splash.parentNode.removeChild(splash);
+                return;
+            }
+        } catch (e) {}
+        document.body.classList.add('splash-lock');
+
+        // 点击任意处 / 任意按键进入（忽略纯修饰键，避免误触）
+        splash.addEventListener('click', enterSite);
+        document.addEventListener('keydown', function (e) {
+            if (['Shift','Control','Alt','Meta','CapsLock','Tab','Enter'].indexOf(e.key) !== -1) return;
+            enterSite();
+        });
+
+        // 鼠标跟随光斑 + 标题视差：提示"点击任意处进入"，不喧宾夺主
+        if (!reduce) {
+            var cursor = document.getElementById('splash-cursor');
+            var title = document.getElementById('splash-title');
+            splash.addEventListener('mousemove', function (e) {
+                var r = splash.getBoundingClientRect();
+                if (cursor) {
+                    cursor.style.left = (e.clientX - r.left) + 'px';
+                    cursor.style.top = (e.clientY - r.top) + 'px';
+                }
+                if (title) {
+                    var dx = (e.clientX - (r.left + r.width / 2)) / r.width;
+                    var dy = (e.clientY - (r.top + r.height / 2)) / r.height;
+                    title.style.transform = 'translate(' + (dx * 14).toFixed(1) + 'px, ' + (dy * 10).toFixed(1) + 'px)';
+                }
+            });
+            splash.addEventListener('mouseleave', function () {
+                if (title) title.style.transform = 'translate(0,0)';
+            });
+        }
+
+        /* 韩剧《爱情怎么翻译》式片头：中英双语短句轮流叠化切换 */
+        (function startTitleCycle() {
+            if (reduce) return;
+            var stage = document.getElementById('splash-title');
+            if (!stage) return;
+            var lines = Array.prototype.slice.call(stage.querySelectorAll('.splash-line'));
+            if (lines.length < 2) return;
+            var step = 0;
+            titleTimer = setInterval(function () {
+                var cur = step % lines.length;
+                var nxt = (step + 1) % lines.length;
+                lines[cur].classList.remove('is-active');
+                lines[cur].classList.add('is-leaving');
+                lines[nxt].classList.add('is-active');
+                lines[nxt].classList.remove('is-leaving');
+                step++;
+            }, 1900);
+        })();
+    })();
+    </script>
+</body>
+</html>

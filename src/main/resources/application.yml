@@ -1,0 +1,74 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: blog
+
+  # ========== 数据源：MySQL ==========
+  # 表结构由 JPA 按实体类自动生成（ddl-auto: update），无需手动建表。
+  # createDatabaseIfNotExist=true 会在库不存在时自动创建 blog 库。
+  # ⚠️ 请按你本机 MySQL 的账号密码修改 username / password（默认 root / root）。
+  datasource:
+    url: jdbc:mysql://localhost:3306/blog?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai&useSSL=false&verifyServerCertificate=false&allowPublicKeyRetrieval=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ${DB_PASSWORD:123456}   # 真实密码放 application-local.yml（已 gitignore），此为开发默认
+
+  # ========== JPA / Hibernate ==========
+  jpa:
+    hibernate:
+      # update：启动时按实体类自动建表；字段变更也会同步（这就是“用代码建数据库”）
+      ddl-auto: update
+    # 指定 MySQL 方言，避免 Hibernate 猜错
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  # ========== 开发模式：关闭静态资源缓存 ==========
+  # 改了前端 JS/CSS 后硬刷新（Ctrl+Shift+R）即生效，不被浏览器缓存坑
+  web:
+    resources:
+      cache:
+        period: 0
+      chain:
+        cache: false
+
+# ========== 自定义配置：JWT 密钥与有效期 ==========
+jwt:
+  # 生产环境务必换成足够长且保密的随机串（HS256 要求密钥 >= 32 字节）
+  secret: ${JWT_SECRET:blogSecretKeyForJwtTokenGenerationMustBeLongEnoughForHs256AlgorithmAtLeast256Bits}   # 生产务必换随机串；本机真实值放 application-local.yml
+  expiration: 86400000   # 令牌有效期，单位毫秒（这里 24 小时）
+
+# ========== 自定义配置：OpenRouter AI 助手 ==========
+# OpenRouter 提供大量“免费模型”（模型名带 :free 后缀），申请 Key 免费：https://openrouter.ai/keys
+# ⚠️ 当前 api-key 留空，仅用于先把界面跑通；填入真实 Key 后重启后端即可真实调用大模型。
+openrouter:
+  api-key: ${OPENROUTER_API_KEY:}            # 真实 Key 放 application-local.yml（已 gitignore）或环境变量 OPENROUTER_API_KEY，切勿提交
+  model: "openrouter/free"   # OpenRouter 免费路由：自动选一个可用免费模型（模型不固定，仅适合体验）
+  base-url: "https://openrouter.ai/api/v1/chat/completions"
+
+# ========== 自定义配置：Python AI 助手代理地址 ==========
+# Java 仅做转发，真正的 AI 能力由 ai-assistant(Python + LangChain) 微服务在 8000 端口提供
+ai:
+  python-url: "http://localhost:8000/api/ai/chat"
+  session:
+    max-sessions: 5000      # 会话历史最多保留的用户数；超出后回收最久未访问的
+    ttl-minutes: 30         # 会话空闲超过该时长即过期回收，防止内存泄漏
+
+# ========== 自定义配置：CORS 跨域白名单 ==========
+# 仅允许下列来源跨域（携带凭证时不能用 "*"，避免任意网站盗用用户 token）。
+# localhost / 127 段覆盖同源与本地调试；null 用于本地以 file:// 直接打开前端调试。
+# 生产部署请改为真实前端域名，并去掉 null。可用环境变量 APP_CORS_ALLOWED_ORIGINS 覆盖。
+app:
+  cors:
+    allowed-origins: "http://localhost:8080,http://127.0.0.1:8080,null"
+
+# ========== 本地 Profile 激活（不提交真实配置） ==========
+# 默认激活 local，加载 application-local.yml（gitignore 排除，含真实 OpenRouter Key / 密码 / JWT 密钥）。
+# 生产部署时通过环境变量 SPRING_PROFILES_ACTIVE=prod 覆盖，避免加载本地敏感配置。
+spring:
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:local}

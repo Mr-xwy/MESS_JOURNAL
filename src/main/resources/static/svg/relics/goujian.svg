@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="越王勾践剑">
+  <g fill="none" stroke="#1a1410" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M155 45 L75 125"/>
+    <path d="M163 53 L83 133"/>
+    <path d="M75 125 L83 133"/>
+    <path d="M155 45 L163 53"/>
+    <path d="M150 50 L82 130"/>
+    <path d="M120 85 l9 9 -9 9 -9 -9 Z"/>
+    <path d="M104 101 l9 9 -9 9 -9 -9 Z"/>
+    <path d="M70 130 L92 152"/>
+    <path d="M78 122 L100 144"/>
+    <path d="M83 133 L57 159"/>
+    <circle cx="53" cy="163" r="7"/>
+    <circle cx="53" cy="163" r="2.5"/>
+  </g>
+</svg>

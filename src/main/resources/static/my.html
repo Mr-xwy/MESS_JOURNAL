@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的 — 杂研期刊</title>
+    <meta name="description" content="杂研期刊「我的」：我的文章、收藏、评论与消息，集中管理个人内容。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=51">
+    <link rel="stylesheet" href="css/modules.css?v=43">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/premium.css?v=3">
+    <link rel="stylesheet" href="css/theme.css?v=1">
+    <link rel="stylesheet" href="css/theme-light.css?v=1">
+    <script>(function(){try{var t=localStorage.getItem('mess_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body class="newspaper-page">
+    <div class="sidebar-hover-zone" id="sidebar-trigger"></div>
+    <button class="hamburger" id="hamburger" title="召唤导航栏" aria-label="召唤导航栏" aria-expanded="false" aria-controls="sidebar"><svg class="icon"><use href="#icon-menu"/></svg></button>
+    <header class="site-header" id="sidebar">
+        <div class="brand">
+            <div class="brand-title">M.E.S.S Journal</div>
+            <div class="brand-sub">杂研期刊 | Method, Experiment, Survey, Summary</div>
+        </div>
+        <nav class="nav">
+            <a href="index.html" id="nav-home"><svg class="icon"><use href="#icon-home"/></svg> 首页</a>
+            <a href="articles.html" id="nav-articles"><svg class="icon"><use href="#icon-doc"/></svg> 文章</a>
+            <a href="my.html" id="nav-mine"><svg class="icon"><use href="#icon-folder"/></svg> 我的</a>
+            <a href="engraving.html" id="nav-engraving"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊</a>
+            <a href="museum.html" id="nav-museum"><svg class="icon"><use href="#icon-museum"/></svg> 线上博物馆</a>
+            <a href="puzzle.html" id="nav-puzzle"><svg class="icon"><use href="#icon-grid"/></svg> 每日谜题</a>
+            <a href="shop.html" id="nav-shop"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺</a>
+            <a href="announcements.html" id="nav-announcements"><svg class="icon"><use href="#icon-inbox"/></svg> 公告</a>
+            <a href="inbox.html" id="nav-inbox" style="display:none"><svg class="icon"><use href="#icon-inbox"/></svg> 信息箱</a>
+        </nav>
+        <div class="header-right"><div id="user-area"></div></div>
+    </header>
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="main-wrapper">
+        <div class="top-bar">
+            <div class="top-brand">M·E·S·S Journal · 杂研期刊</div>
+            <div class="top-right">个人中心 · PERSONAL DESK</div>
+        </div>
+        <header class="newspaper-masthead masthead--ink reveal">
+            <div class="masthead-overline">Personal Desk</div>
+            <h1 class="masthead-title">我的</h1>
+            <div class="masthead-tagline">文章 · 收藏 · 评论 · 消息，皆归此处</div>
+        </header>
+
+        <!-- Tab 切换：「我的」个人中心 -->
+        <div class="tabs" role="tablist" aria-label="我的内容分类">
+            <button class="tab active" id="tab-articles" data-tab="articles" role="tab" aria-selected="true"><svg class="icon"><use href="#icon-pen"/></svg> 我的文章</button>
+            <button class="tab" id="tab-favorites" data-tab="favorites" role="tab" aria-selected="false"><svg class="icon"><use href="#icon-star"/></svg> 我的收藏</button>
+            <button class="tab" id="tab-relics" data-tab="relics" role="tab" aria-selected="false"><svg class="icon"><use href="#icon-museum"/></svg> 我的古董</button>
+        </div>
+
+        <div class="tab-panels">
+            <!-- 我的文章 -->
+            <section class="tab-panel active" data-panel="articles" role="tabpanel" aria-labelledby="tab-articles">
+                <div class="section-heading">
+                    <h2>我的文章</h2>
+                    <div class="sub">MY ARTICLES</div>
+                </div>
+                <div class="article-list" id="my-articles"></div>
+            </section>
+
+            <!-- 我的收藏 -->
+            <section class="tab-panel" data-panel="favorites" role="tabpanel" aria-labelledby="tab-favorites" hidden>
+                <div class="section-heading">
+                    <h2>我的收藏</h2>
+                    <div class="sub">MY FAVORITES</div>
+                </div>
+                <div class="article-list" id="my-favorites"></div>
+            </section>
+
+            <!-- 我的古董 -->
+            <section class="tab-panel" data-panel="relics" role="tabpanel" aria-labelledby="tab-relics" hidden>
+                <div class="section-heading">
+                    <h2>我的古董</h2>
+                    <div class="sub">MY ANTIQUES</div>
+                </div>
+                <div class="relic-grid" id="my-relics"></div>
+            </section>
+        </div>
+
+        <footer class="footer footer--ink reveal">M·E·S·S Journal — 杂研期刊 · Mr.Vale</footer>
+    </div>
+
+    <script src="js/config.js?v=1"></script>
+    <script src="js/api.js?v=41"></script>
+    <script src="js/common.js?v=47"></script>
+    <script src="js/my.js?v=2"></script>
+</body>
+</html>

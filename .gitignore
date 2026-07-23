@@ -1,0 +1,33 @@
+# ===================== Maven 编译产物（含 target/classes/application.yml 副本，禁止提交） =====================
+/target/
+**/target/
+
+# ===================== IntelliJ IDEA =====================
+/.idea/
+*.iml
+*.iml
+
+# ===================== 本地敏感配置（含真实凭证，绝不提交） =====================
+# 真实 OpenRouter Key / 本机 MySQL 密码 / JWT 密钥放这里，由 .gitignore 排除
+src/main/resources/application-local.yml
+**/application-local.yml
+
+# ===================== 环境变量文件 =====================
+.env
+.env.local
+.env.*.local
+
+# ===================== 日志 =====================
+*.log
+/logs/
+
+# ===================== 操作系统 / 编辑器 =====================
+.DS_Store
+Thumbs.db
+*.swp
+*~
+
+# ===================== 打包产物 =====================
+*.jar
+*.war
+!**/src/**/*.jar

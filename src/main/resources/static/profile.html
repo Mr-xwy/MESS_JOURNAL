@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人资料 · M.E.S.S Journal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=IM+Fell+English+SC&family=JetBrains+Mono:wght@400;500&family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css?v=51">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/premium.css?v=2">
+    <link rel="stylesheet" href="css/theme.css?v=1">
+    <link rel="stylesheet" href="css/theme-light.css?v=1">
+    <script>(function(){try{var t=localStorage.getItem('mess_theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+</head>
+<body>
+    <!-- 左边缘悬停触发区：鼠标移到这里就召唤侧栏 -->
+    <div class="sidebar-hover-zone" id="sidebar-trigger"></div>
+
+    <!-- 汉堡按钮：始终可见，召唤侧栏 -->
+
+    <header class="site-header" id="sidebar">
+        <div class="brand">
+            <div class="brand-title">M.E.S.S Journal</div>
+            <div class="brand-sub">杂研期刊 | Method, Experiment, Survey, Summary</div>
+        </div>
+                <nav class="nav">
+            <a href="index.html" id="nav-home"><svg class="icon"><use href="#icon-home"/></svg> 首页</a>
+            <a href="articles.html" id="nav-articles"><svg class="icon"><use href="#icon-doc"/></svg> 文章</a>
+            <a href="my.html" id="nav-mine"><svg class="icon"><use href="#icon-folder"/></svg> 我的</a>
+            <a href="engraving.html" id="nav-engraving"><svg class="icon"><use href="#icon-brush"/></svg> 版画工坊</a>
+            <a href="museum.html" id="nav-museum"><svg class="icon"><use href="#icon-museum"/></svg> 线上博物馆</a>
+            <a href="puzzle.html" id="nav-puzzle"><svg class="icon"><use href="#icon-grid"/></svg> 每日谜题</a>
+            <a href="shop.html" id="nav-shop"><svg class="icon"><use href="#icon-shop"/></svg> 古董铺</a>
+            <a href="announcements.html" id="nav-announcements"><svg class="icon"><use href="#icon-inbox"/></svg> 公告</a>
+            <a href="inbox.html" id="nav-inbox" style="display:none"><svg class="icon"><use href="#icon-inbox"/></svg> 信息箱</a>
+        </nav>
+        <div class="header-right">
+            <span id="user-area"></span>
+        </div>
+    </header>
+
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <div class="top-bar">
+        <div class="top-brand">M·E·S·S Journal · 杂研期刊</div>
+        <button class="top-back" id="top-back-btn" type="button" aria-label="返回上一页">
+            <svg class="icon"><use href="#icon-arrow-left"/></svg><span>返回</span>
+        </button>
+    </div>
+
+    <div class="main-wrapper">
+    <main class="container" style="max-width:520px">
+        <div class="form-card">
+            <h2>个人资料</h2>
+            <div class="field">
+                <label>用户名（不可改）</label>
+                <input id="username" class="input" type="text" disabled />
+            </div>
+            <div class="field">
+                <label>昵称</label>
+                <input id="nickname" class="input" type="text" />
+            </div>
+            <div class="field">
+                <label>邮箱</label>
+                <input id="email" class="input" type="text" />
+            </div>
+            <div class="field">
+                <label>头像</label>
+                <div class="avatar-upload">
+                    <img id="avatarPreview" class="avatar-preview" alt="头像预览" hidden>
+                    <span id="avatarPlaceholder" class="avatar-preview avatar-preview--placeholder"><svg class="icon"><use href="#icon-avatar"/></svg></span>
+                    <div class="avatar-actions">
+                        <input type="file" id="avatarFile" accept="image/*" hidden>
+                        <button type="button" class="btn" id="avatarPick">选择图片</button>
+                        <button type="button" class="link-btn" id="avatarClear" hidden>移除</button>
+                    </div>
+                    <input type="hidden" id="avatar" value="">
+                </div>
+            </div>
+            <hr style="border:none;border-top:1px dashed var(--border);margin:18px 0">
+            <div class="field">
+                <label>原密码（修改密码时填）</label>
+                <input id="oldPassword" class="input" type="password" />
+            </div>
+            <div class="field">
+                <label>新密码</label>
+                <input id="newPassword" class="input" type="password" />
+            </div>
+            <button class="btn primary" id="save" style="width:100%">保存修改</button>
+            <div class="error-msg" id="err"></div>
+        </div>
+    </main>
+    </div>
+
+    <!-- AI 助手浮窗 -->
+    <button class="ai-fab" id="ai-fab" title="AI 助手"><svg class="icon icon-lg"><use href="#icon-brain"/></svg></button>
+    <div class="ai-panel" id="ai-panel" hidden>
+        <div class="ai-panel-header">
+            <span><svg class="icon"><use href="#icon-brain"/></svg> AI 助手</span>
+            <button class="ai-close" id="ai-close" aria-label="关闭"><svg class="icon"><use href="#icon-x"/></svg></button>
+        </div>
+        <div class="ai-messages" id="ai-messages">
+            <div class="ai-msg ai-ai">你好，我是站内 AI 助手。试试问我：“标准的学术期刊格式是什么？”</div>
+        </div>
+        <div class="ai-input-row">
+            <textarea id="ai-input" placeholder="问我任何问题…（Enter 发送，Shift+Enter 换行）" rows="1"></textarea>
+            <button id="ai-send">发送</button>
+        </div>
+    </div>
+
+    <script src="js/api.js?v=36"></script>
+    <script src="js/common.js?v=47"></script>
+    <script src="js/image-utils.js?v=1"></script>
+    <script src="js/profile.js?v=36"></script>
+</body>
+</html>

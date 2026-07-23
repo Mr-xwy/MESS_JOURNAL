@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="后母戊鼎">
+  <g fill="none" stroke="#1a1410" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M44 70 H156"/>
+    <path d="M50 70 H150 V150 H50 Z"/>
+    <path d="M62 70 C62 50 78 50 78 70"/>
+    <path d="M122 70 C122 50 138 50 138 70"/>
+    <path d="M50 150 V182"/>
+    <path d="M150 150 V182"/>
+    <path d="M58 150 V180"/>
+    <path d="M142 150 V180"/>
+    <path d="M50 92 H150"/>
+    <path d="M50 120 H150"/>
+    <circle cx="80" cy="106" r="6"/>
+    <circle cx="120" cy="106" r="6"/>
+    <path d="M70 106 q10 -8 20 0"/>
+    <path d="M110 106 q10 -8 20 0"/>
+  </g>
+</svg>

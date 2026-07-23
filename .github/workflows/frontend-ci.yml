@@ -1,0 +1,20 @@
+# =============================================================================
+# frontend-ci.yml —— 前端 CI（脚手架，对应优化建议 P2-⑬）
+# 每次 push / PR 跑 lint + 测试。build 需先 npm install（见 package.json）。
+# 投产前请确认仓库的 Node 版本与 devDependencies 一致。
+# =============================================================================
+name: frontend-ci
+
+on: [push, pull_request]
+
+jobs:
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test

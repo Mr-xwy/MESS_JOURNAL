@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#3a3128" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" opacity="0.85">
+  <g transform="translate(200,200)">
+    <!-- 中心茎 -->
+    <line x1="0" y1="-150" x2="0" y2="150" stroke-width="1"/>
+    <!-- 左侧橡树叶（3片） -->
+    <g>
+      <!-- 左上叶 -->
+      <g transform="translate(-25,-100) rotate(-30)">
+        <path d="M0,0 Q-10,-5 -20,-3 Q-25,0 -22,5 Q-15,8 -8,5 Q-3,3 0,0"/>
+        <path d="M-20,-3 L-18,0 M-15,0 L-13,3 M-10,1 L-8,4" opacity="0.5"/>
+        <!-- 叶裂 -->
+        <path d="M-5,-2 Q-3,0 -5,2" />
+      </g>
+      <!-- 左中叶 -->
+      <g transform="translate(-30,0) rotate(-10)">
+        <path d="M0,0 Q-15,-6 -30,-3 Q-38,0 -33,6 Q-22,10 -12,6 Q-5,3 0,0"/>
+        <path d="M-30,-3 L-28,1 M-22,1 L-20,4 M-15,2 L-13,5" opacity="0.5"/>
+      </g>
+      <!-- 左下叶 -->
+      <g transform="translate(-25,100) rotate(20)">
+        <path d="M0,0 Q-12,-5 -25,-3 Q-32,0 -28,5 Q-18,8 -10,5 Q-4,3 0,0"/>
+        <path d="M-25,-3 L-23,1 M-18,1 L-16,4" opacity="0.5"/>
+      </g>
+    </g>
+    <!-- 右侧橡树叶（3片） -->
+    <g>
+      <g transform="translate(25,-100) rotate(30)">
+        <path d="M0,0 Q10,-5 20,-3 Q25,0 22,5 Q15,8 8,5 Q3,3 0,0"/>
+        <path d="M20,-3 L18,0 M15,0 L13,3 M10,1 L8,4" opacity="0.5"/>
+      </g>
+      <g transform="translate(30,0) rotate(10)">
+        <path d="M0,0 Q15,-6 30,-3 Q38,0 33,6 Q22,10 12,6 Q5,3 0,0"/>
+        <path d="M30,-3 L28,1 M22,1 L20,4 M15,2 L13,5" opacity="0.5"/>
+      </g>
+      <g transform="translate(25,100) rotate(-20)">
+        <path d="M0,0 Q12,-5 25,-3 Q32,0 28,5 Q18,8 10,5 Q4,3 0,0"/>
+        <path d="M25,-3 L23,1 M18,1 L16,4" opacity="0.5"/>
+      </g>
+    </g>
+    <!-- 顶端橡果 -->
+    <g transform="translate(0,-160)">
+      <ellipse cx="0" cy="0" rx="8" ry="12"/>
+      <path d="M-10,-8 Q0,-12 10,-8 Q8,-5 0,-4 Q-8,-5 -10,-8 Z"/>
+      <line x1="-10" y1="-8" x2="-12" y2="-15" stroke-width="0.5"/>
+      <line x1="10" y1="-8" x2="12" y2="-15" stroke-width="0.5"/>
+      <line x1="0" y1="-4" x2="0" y2="-15" stroke-width="0.5"/>
+    </g>
+    <!-- 底端橡果 -->
+    <g transform="translate(0,160)">
+      <ellipse cx="0" cy="0" rx="8" ry="12"/>
+      <path d="M-10,8 Q0,12 10,8 Q8,5 0,4 Q-8,5 -10,8 Z"/>
+    </g>
+    <!-- 顶部小叶 -->
+    <path d="M0,-150 Q-15,-160 -20,-170 Q-10,-165 0,-155"/>
+    <path d="M0,-150 Q15,-160 20,-170 Q10,-165 0,-155"/>
+  </g>
+</svg>

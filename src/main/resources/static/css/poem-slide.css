@@ -1,0 +1,128 @@
+/* poem-slide.css —— 拼诗华容道（滑动拼图）样式
+ * 复用主题变量（--surface / --rule-gold / --accent / --text 等），兼容浅色/深色主题。
+ */
+
+/* ===== 难度切换 ===== */
+.puzzle-diff {
+    display: flex;
+    gap: 10px;
+    margin: 0 0 14px;
+}
+.diff-btn {
+    flex: 1;
+    padding: 10px 0;
+    border: 1px solid var(--rule-gold);
+    background: var(--surface);
+    color: var(--text-soft);
+    font-family: var(--sans, system-ui, sans-serif);
+    font-size: 14px;
+    letter-spacing: 0.04em;
+    border-radius: var(--r, 10px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.diff-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+.diff-btn:hover {
+    color: var(--text);
+}
+
+/* ===== 滑动棋盘（#puzzle-grid 同时带 .puzzle-board 与 .slide-board） ===== */
+.puzzle-board.slide-board {
+    display: grid;
+    grid-template-columns: repeat(var(--cols, 4), 1fr);
+    gap: 8px;
+    padding: 14px;
+    width: 100%;
+    max-width: 460px;
+    margin: 0 auto;
+}
+
+.slide-tile {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--serif-display, "Noto Serif SC", serif);
+    font-size: clamp(16px, 5.2vw, 30px);
+    background: var(--surface);
+    border: 1px solid var(--rule-gold);
+    border-radius: var(--r, 10px);
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    box-shadow: var(--shadow-soft, 0 2px 8px rgba(0, 0, 0, 0.08));
+}
+.slide-tile:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.14);
+}
+.slide-tile--blank {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    cursor: default;
+}
+.slide-tile--blank:hover {
+    transform: none;
+}
+.slide-tile--solved {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+}
+
+/* ===== 诗题提示 ===== */
+.puzzle-hint {
+    text-align: center;
+    margin: 14px 0 4px;
+    color: var(--text-soft);
+    font-family: var(--serif-display, "Noto Serif SC", serif);
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+/* ===== 操作按钮 ===== */
+.puzzle-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 8px 0 4px;
+}
+
+/* ===== 原诗展示（通关后 / 查看原诗） ===== */
+.poem-reveal {
+    display: none;
+    margin: 14px auto 0;
+    max-width: 460px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px solid var(--rule-gold);
+    border-radius: var(--r, 10px);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-soft, 0 2px 8px rgba(0, 0, 0, 0.08));
+}
+.poem-reveal .poem-title {
+    font-family: var(--serif-display, "Noto Serif SC", serif);
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 4px;
+    letter-spacing: 0.06em;
+}
+.poem-reveal .poem-author {
+    font-size: 13px;
+    color: var(--text-faded, #999);
+    margin-bottom: 10px;
+}
+.poem-reveal .poem-body {
+    font-family: var(--serif-display, "Noto Serif SC", serif);
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text);
+    letter-spacing: 0.1em;
+    white-space: pre-line; /* 保留原诗换行（词的分行） */
+}
